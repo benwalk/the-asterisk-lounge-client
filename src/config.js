@@ -9,7 +9,7 @@ export default {
         REGION: "us-west-2"
     },
     s3: {
-      BUCKET: "ss-notes-uploads-bucket"
+      BUCKET: "the-asterisk-lounge-uploads-bucket"
     },
     apiGateway: {
       URL: "https://q8gyipol40.execute-api.us-west-2.amazonaws.com/prod",

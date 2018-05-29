@@ -68,7 +68,7 @@ export default class Home extends Component {
     return (
       <div className="lander">
         <h1>The Asterisk Lounge</h1>
-        <p>Play some games</p>
+        <p>Take a seat. Play some games.</p>
         <div>
           <Link to="/login" className="btn btn-info btn-lg">
             Login

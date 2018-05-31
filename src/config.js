@@ -3,16 +3,17 @@ export default {
     MAX_ATTACHMENT_SIZE: 5000000,
 
     cognito: {
-        USER_POOL_ID: "us-west-2_Kk5TEXLQD",
-        APP_CLIENT_ID: "3l2ijdtdldb9vjkik7gufeijqf",
-        IDENTITY_POOL_ID: "us-west-2:ee07e870-c8d1-4015-803e-53f61813eb30",
+        USER_POOL_ID: "us-west-2_uGxuULyYL",
+        APP_CLIENT_ID: "osptsaf1h06bcpct8janiee8t",
+        IDENTITY_POOL_ID: "us-west-2:ead8a2cc-701c-4e7f-9764-0bc71697a7b5",
         REGION: "us-west-2"
     },
     s3: {
+      REGION: "us-west-2",
       BUCKET: "the-asterisk-lounge-uploads-bucket"
     },
     apiGateway: {
-      URL: "https://q8gyipol40.execute-api.us-west-2.amazonaws.com/prod",
+      URL: "https://ev3xka3863.execute-api.us-west-2.amazonaws.com/prod",
       REGION: "us-west-2"
     }
 }

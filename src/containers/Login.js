@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-import "./Login.css";
 import { CognitoUserPool, AuthenticationDetails, CognitoUser } from "amazon-cognito-identity-js";
 import config from "../config";
+import "./Login.css";
 
 export default class Login extends Component {
     constructor(props) {

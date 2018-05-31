@@ -10,7 +10,7 @@ export default class Home extends Component {
 
     this.state = {
       isLoading: true,
-      notes: []
+      games: []
     };
   }
 
@@ -20,8 +20,8 @@ export default class Home extends Component {
     }
 
     try {
-      const results = await this.notes();
-      this.setState({ notes: results });
+      const results = await this.games();
+      this.setState({ games: results });
     }
     catch (e) {
       alert(e);
@@ -30,34 +30,34 @@ export default class Home extends Component {
     this.setState({ isLoading: false });
   }
 
-  notes() {
-    return invokeApig({ path: "/notes" });
+  games() {
+    return invokeApig({ path: "/games" });
   }
 
-  handleNoteClick = event => {
+  handleGameClick = event => {
     event.preventDefault();
     this.props.history.push(event.currentTarget.getAttribute("href"));
   }
 
-  renderNotesList(notes) {
-    return [{}].concat(notes).map(
-      (note, i) =>
+  renderGamesList(games) {
+    return [{}].concat(games).map(
+      (game, i) =>
         i !== 0
           ? <ListGroupItem
-              key={note.noteId}
-              href={`/notes/${note.noteId}`}
-              onClick={this.handleNoteClick}
-              header={note.content.trim().split("\n")[0]}
+              key={game.gameId}
+              href={`/games/${game.gameId}`}
+              onClick={this.handleGameClick}
+              header={game.content.trim().split("\n")[0]}
             >
-              {`Created: ${new Date(note.createdAt).toLocaleString()}`}
+              {`Created: ${new Date(game.createdAt).toLocaleString()}`}
             </ListGroupItem>
           : <ListGroupItem
               key="new"
-              href="/notes/new"
-              onClick={this.handleNoteClick}
+              href="/game/new"
+              onClick={this.handleGameClick}
             >
               <h4>
-                <b>{"\uFF0B"}</b> Create a new note
+                <b>{"\uFF0B"}</b> Create a new game
               </h4>
             </ListGroupItem>
 
@@ -81,12 +81,12 @@ export default class Home extends Component {
     );
   }
 
-  renderNotes() {
+  renderGames() {
     return (
-      <div className="notes">
-        <PageHeader>Your Notes</PageHeader>
+      <div className="games">
+        <PageHeader>Your Games</PageHeader>
         <ListGroup>
-          {!this.state.isLoading && this.renderNotesList(this.state.notes)}
+          {!this.state.isLoading && this.renderGamesList(this.state.games)}
         </ListGroup>
       </div>
     );
@@ -95,7 +95,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className="Home">
-        {this.props.isAuthenticated ? this.renderNotes() : this.renderLander()}
+        {this.props.isAuthenticated ? this.renderGames() : this.renderLander()}
       </div>
     );
   }

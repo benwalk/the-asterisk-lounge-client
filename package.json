@@ -18,10 +18,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "build:netlify": "npm run build && cp _redirects build/_redirects",
+    "eject": "react-scripts eject",
     "open": "open http://the-asterisk-lounge-client.s3-website-us-west-2.amazonaws.com",
     "predeploy": "npm run build",
     "deploy": "aws s3 sync build/ s3://the-asterisk-lounge-client --delete",
-    "postdeploy": "aws cloudfront create-invalidation --distribution-id E1CCUP166R5DYG --paths '/*' && aws cloudfront create-invalidation --distribution-id E4HE6Z1JYOO9R --paths '/*'",
-    "eject": "react-scripts eject"
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E1CCUP166R5DYG --paths '/*' && aws cloudfront create-invalidation --distribution-id E4HE6Z1JYOO9R --paths '/*'"
   }
 }
